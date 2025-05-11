@@ -3,47 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>BOOKSKY</title>
     <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="whole">
-    <nav class="navbar">
-        <a href="" class="logo">Portfolio</a>
-        <ul>
-            <li><a href="" class="active">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Portfolio</a></li>
-            <li><a href="">Service</a></li>
-            <li><a href="">Contact</a></li>
-        </ul>
-    </nav>
-    <section class="home">
-        <div class="home-info">
-            <h1>Ashwin Kumaran</h1>
-            <h2>I'm a frontend developer</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, deserunt quidem? Itaque ipsa ea veritatis?</p>
-            <div class="btn-sci">
-                <a href="" class="btn">Download CV</a>
-                <div class="sci">
-                    <a href="#"><i class='bx bxl-github'></i></a>
-                    <a href="#"><i class='bx bxl-linkedin'></i></a>
-                    <a href="#"><i class='bx bxl-instagram' ></i></a>
-                    <a href="#"><i class='bx bxl-whatsapp' ></i></a>
+    <div class="navbar">
+        <h1>Booksky</h1>
+    </div>
+    <div class="container">
+        <div class="book-container">
+            <h2>Rich Dad Poor Dad</h2>
+            <h5>Ashwin</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nisi autem eaque. Praesentium, porro laudantium dolorem recusandae perspiciatis fugiat reprehenderit? Debitis exercitationem sint sequi enim laudantium voluptatibus blanditiis, veritatis amet?</p>
+        <button class="delbtn">Delete</button>
+        </div>
 
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="home-img">
-        <div class="image-box">
-            <div class="image-item">
-                <img src="photo.png" alt="">
-            </div>
-        </div>
     </div>
+    <div class="overlay"></div>
+    <div class="popup">
+        <h2>Add book</h2>
+        <form>
+            <input placeholder="book title" id="booktitle">
+            <input placeholder="book author" id="bookauthor">
+            <textarea placeholder="short Description" id="bookdesc">
+
+            </textarea>
+            <button id="add-book">Add</button>
+            <button id="Cancel-text">Cancel</button>
+        </form>
     </div>
+    <button class="add-button" id="add-popup-button">+</button>
+    <script src="script.js"></script>
     
 </body>
 </html>
