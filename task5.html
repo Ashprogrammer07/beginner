@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <style>
+        body, h1, p, table, input, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .form-container {
+            width: 50%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            padding: 10px;
+            text-align: left;
+            background-color: #f2f2f2;
+        }
+        input[type="text"], input[type="number"], input[type="email"], select, input[type="radio"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+
+        input[type="radio"] {
+            width: auto;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1d24a6;
+        }
+        table#tab {
+            margin-top: 20px;
+            width: 80%;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table#tab td, table#tab th {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table#tab th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Student Form</h1>
+        <form id="studentForm">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input id="name" type="text" required></td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td><input id="Age" type="number" required></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="radio" name="Gender" value="Male" required> Male
+                        <input type="radio" value="Female" name="Gender" required> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Course</td>
+                    <td>
+                        <select id="course" required>
+                            <option value="">Select a course</option>
+                            <option>Javascript</option>
+                            <option>C</option>
+                            <option>C++</option>
+                            <option>Python</option>
+                            <option>Java</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input id="email" type="email" required></td>
+                </tr>
+            </table>
+            <button type="button" id="btn" onclick="save()">Save</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form>
+            <table id="tab">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        function save(){
+            const name = document.getElementById("name");
+            const age = document.getElementById("Age");
+            const gender = document.querySelector('input[name="Gender"]:checked');
+            const course = document.getElementById("course");
+            const email = document.getElementById("email");
+
+            // Validation to ensure all fields are filled
+            if (!name.value || !age.value || !gender || !course.value || !email.value) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            const table2 = document.getElementById("tab");
+            var tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${name.value}</td>
+                <td>${age.value}</td>
+                <td>${course.value}</td>
+                <td>${gender.value}</td>
+                <td>${email.value}</td>
+                <td><button class="delete-button" onclick="delete_item(event)">Delete</button></td>
+            `;
+            table2.append(tr);
+
+            // Clear the form after submission
+            document.getElementById("studentForm").reset();
+        }
+
+        function delete_item(event) {
+            const row = event.target.closest('tr');
+            row.remove();
+        }
+    </script>
+    
+</body>
+</html>
